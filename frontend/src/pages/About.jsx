@@ -102,7 +102,14 @@ export default function About() {
           
           {/* Interactive Name */}
           <div className="mb-8">
-            <HeroTextPressure className="text-5xl md:text-8xl" />
+            {isMobile ? (
+              <h1 className="text-5xl font-bold">
+                <span className="text-white">Harsh </span>
+                <span className="text-cyan-400">Kakadiya</span>
+              </h1>
+            ) : (
+              <HeroTextPressure className="text-5xl md:text-8xl" />
+            )}
           </div>
           
           <p className="text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
