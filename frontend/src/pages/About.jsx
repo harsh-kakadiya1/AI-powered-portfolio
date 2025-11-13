@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/navigation/Navbar';
 import { HeroTextPressure } from '../components/ui/hero-text-pressure';
 import { useMobile } from '../hooks/useMobile';
+import LogoLoop from '../components/ui/LogoLoop';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiMongodb, SiPython, SiTensorflow, SiDocker, SiGit } from 'react-icons/si';
 
 export default function About() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -60,6 +62,19 @@ export default function About() {
       period: "May 2025 - Jun 2025 (2 months)",
       description: "I gained hands-on experience with the MERN stack, finding great satisfaction in working with React and JavaScript."
     }
+  ];
+
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
+    { node: <SiMongodb />, title: "MongoDB", href: "https://www.mongodb.com" },
+    { node: <SiPython />, title: "Python", href: "https://www.python.org" },
+    { node: <SiTensorflow />, title: "TensorFlow", href: "https://www.tensorflow.org" },
+    { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
+    { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
   ];
 
   return (
@@ -242,6 +257,37 @@ export default function About() {
             </div>
           </motion.section>
         </div>
+
+        {/* Tech Stack Logo Loop Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mb-20 max-w-8xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Technologies I <span className="text-cyan-400">Work With</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              A collection of tools and frameworks I use to build powerful applications
+            </p>
+          </div>
+          
+          <div className="bg-black/30 backdrop-blur-md border border-white/20 rounded-2xl p-12 overflow-hidden w-full">
+            <LogoLoop
+              logos={techLogos}
+              speed={50}
+              direction="left"
+              logoHeight={64}
+              gap={60}
+              hoverSpeed={0}
+              scaleOnHover
+              ariaLabel="Technology stack"
+              className="text-cyan-400"
+            />
+          </div>
+        </motion.section>
 
         {/* CTA Section */}
         <motion.section
