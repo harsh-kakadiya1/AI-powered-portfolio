@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/navigation/Navbar';
@@ -11,44 +11,8 @@ import Terminal from './pages/Terminal';
 import Projects from './pages/Projects';
 import Playground from './pages/Playground';
 import Contact from './pages/Contact';
-import BootSequence from './components/terminal/BootSequence';
-import { useMobile } from './hooks/useMobile';
 
 function App() {
-  const [showBootScreen, setShowBootScreen] = useState(false);
-  const { isMobile } = useMobile();
-
-  useEffect(() => {
-    // Immediate mobile detection
-    const isMobileDevice = () => {
-      const width = window.innerWidth;
-      const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      return width < 768 || isMobileUA || (isTouchDevice && width < 1024);
-    };
-
-    // Skip boot screen entirely on mobile
-    if (isMobileDevice()) {
-      return;
-    }
-
-    const hasBootedThisSession = sessionStorage.getItem('hasBooted');
-    const isManualRefresh = performance.getEntriesByType('navigation')[0]?.type === 'reload';
-    
-    // Show boot screen only on desktop for first visit or manual refresh
-    if (isManualRefresh || !hasBootedThisSession) {
-      setShowBootScreen(true);
-      sessionStorage.setItem('hasBooted', 'true');
-    }
-  }, []);
-
-  const handleBootComplete = () => {
-    setShowBootScreen(false);
-  };
-
-  if (showBootScreen) {
-    return <BootSequence onComplete={handleBootComplete} />;
-  }
 
   return (
     <ThemeProvider
