@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/navigation/Navbar';
 import GitHubHeatmap from '../components/github/GitHubHeatmap';
+import GitHubAchievements from '../components/github/GitHubAchievements';
 
 export default function Playground() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -123,6 +124,12 @@ export default function Playground() {
       color: "from-blue-400 to-blue-500"
     },
     {
+      name: "FLUTTER",
+      description: "Cross-platform mobile framework for building beautiful native apps",
+      icon: "",
+      color: "from-cyan-400 to-blue-500"
+    },
+    {
       name: "NODE.JS",
       description: "JavaScript runtime powering scalable backend solutions",
       icon: "",
@@ -157,6 +164,12 @@ export default function Playground() {
       description: "Cloud platform for effortless app deployment and scaling",
       icon: "",
       color: "from-indigo-500 to-indigo-600"
+    },
+    {
+      name: "RAILWAY",
+      description: "Modern platform for deploying applications with zero configuration",
+      icon: "",
+      color: "from-gray-700 to-gray-900"
     },
     {
       name: "JAVA",
@@ -262,6 +275,9 @@ export default function Playground() {
             </div>
           </div>
 
+          {/* GitHub Achievements and Highlights */}
+          <GitHubAchievements username={githubUsername} />
+
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {Object.entries(githubStats.stats).map(([key, value]) => (
@@ -344,11 +360,6 @@ export default function Playground() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(0, 212, 170, 0.15)"
-                }}
                 className="bg-black/30 backdrop-blur-sm border border-white/50 rounded-2xl p-6 group cursor-pointer relative overflow-hidden"
               >
                 {/* Gradient Background */}

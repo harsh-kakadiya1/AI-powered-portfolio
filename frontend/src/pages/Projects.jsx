@@ -91,7 +91,7 @@ export default function Projects() {
         tech: ["Python","OpenCV","MediaPipe","NumPy"],
         image: "/images/projects/hand-gesture-filter-preview.png",
         github: "https://github.com/harsh-kakadiya1/computer-vision/tree/main/Vision-Gestures",
-        live: "#",
+        live: "https://www.linkedin.com/posts/harsh-kakadiya_python-computervision-handtracking-activity-7367994305652744192-lGPR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEU9MpABA9XLjqwwCkwuFC5otNvJzf2xdo4",
         status: "completed"
       },
       {
