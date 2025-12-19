@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/navigation/Navbar';
 import GitHubHeatmap from '../components/github/GitHubHeatmap';
 import GitHubAchievements from '../components/github/GitHubAchievements';
+import BackToTop from '../components/ui/BackToTop';
 
 export default function Playground() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -406,6 +407,7 @@ export default function Playground() {
         </motion.section>
       </div>
       
+      <BackToTop />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Navbar from '../components/navigation/Navbar';
 import { HeroTextPressure } from '../components/ui/hero-text-pressure';
 import { useMobile } from '../hooks/useMobile';
 import LogoLoop from '../components/ui/LogoLoop';
+import BackToTop from '../components/ui/BackToTop';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiMongodb, SiPython, SiTensorflow, SiDocker, SiGit } from 'react-icons/si';
 
 export default function About() {
@@ -358,6 +359,7 @@ export default function About() {
         </motion.section>
       </div>
       
+      <BackToTop />
     </div>
   );
 }

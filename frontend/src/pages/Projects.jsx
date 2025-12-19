@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navigation/Navbar';
 import { useMobile } from '../hooks/useMobile';
+import BackToTop from '../components/ui/BackToTop';
 
 export default function Projects() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -258,6 +259,7 @@ export default function Projects() {
         </motion.section>
       </div>
       
+      <BackToTop />
     </div>
   );
 }
