@@ -9,7 +9,6 @@ export default function Navbar() {
 
   const navItems = [
     { id: 'about', label: 'Harsh', icon: '◉', path: '/' },
-    { id: 'terminal', label: 'Terminal', icon: '▣', path: '/terminal' },
     { id: 'projects', label: 'Projects', icon: '▲', path: '/projects' },
     { id: 'playground', label: 'Playground', icon: '◈', path: '/playground' },
     { id: 'contact', label: 'Contact', icon: '✉', path: '/contact' }

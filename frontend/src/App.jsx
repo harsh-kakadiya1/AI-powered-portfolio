@@ -2,12 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/navigation/Navbar';
-import FloatingTerminalButton from './components/ui/FloatingTerminalButton';
 import { Component as AnimatedBackground } from './components/ui/raycast-animated-blue-background';
 import { ThemeProvider } from './components/ui/theme-provider';
 import CustomCursor from './components/ui/CustomCursor';
 import About from './pages/About';
-import Terminal from './pages/Terminal';
 import Projects from './pages/Projects';
 import Playground from './pages/Playground';
 import Contact from './pages/Contact';
@@ -36,14 +34,12 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<About />} />
-                <Route path="/terminal" element={<Terminal />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/playground" element={<Playground />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
             </AnimatePresence>
           </main>
-          <FloatingTerminalButton />
           <CustomCursor />
         </div>
         </div>
