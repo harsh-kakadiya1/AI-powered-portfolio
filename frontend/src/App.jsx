@@ -1,16 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/navigation/Navbar';
 import { Component as AnimatedBackground } from './components/ui/raycast-animated-blue-background';
 import { ThemeProvider } from './components/ui/theme-provider';
 import CustomCursor from './components/ui/CustomCursor';
+import { GooeyLoader } from './components/ui/loader-10';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Playground from './pages/Playground';
 import Contact from './pages/Contact';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Show loader for 4 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div className="min-h-screen bg-black text-white flex items-center justify-center">
+          <GooeyLoader
+            primaryColor="#06b6d4" // cyan-400
+            secondaryColor="#FFFFFF" // cyan-500
+            borderColor="#1e293b" // slate-800
+          />
+        </div>
+      </ThemeProvider>
+    );
+  }
 
   return (
     <ThemeProvider
