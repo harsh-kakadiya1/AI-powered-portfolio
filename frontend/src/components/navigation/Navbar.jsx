@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { FileText } from 'lucide-react';
 import { useMobile } from '../../hooks/useMobile';
 
 export default function Navbar() {
@@ -65,6 +66,26 @@ export default function Navbar() {
               />
             </button>
           ))}
+          
+          {/* Resume Button */}
+          <a
+            href="/resume.pdf"
+            download="Harsh_Kakadiya_Resume.pdf"
+            className={`relative ${isMobile ? 'px-2 py-2' : 'px-4 py-2'} rounded-xl font-medium ${isMobile ? 'text-xs' : 'text-sm'} transition-colors duration-300 text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/20 ${isMobile ? 'min-w-[44px] min-h-[44px]' : ''} flex items-center justify-center`}
+          >
+            <div className={`relative flex items-center justify-center ${isMobile ? '' : 'gap-2'}`}>
+              <FileText className={isMobile ? 'w-[14px] h-[14px]' : 'w-4 h-4'} />
+              <span className={`${isMobile ? 'hidden' : 'hidden sm:inline'}`}>Resume</span>
+            </div>
+            
+            {/* Hover glow effect */}
+            <div
+              className="absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300"
+              style={{
+                boxShadow: "0 0 15px rgba(0, 212, 170, 0.3)"
+              }}
+            />
+          </a>
         </div>
       </div>
     </nav>
